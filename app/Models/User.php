@@ -42,4 +42,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function books()
+    {
+        return $this->hasMany(Book::class, 'created_by', 'id');
+    }
+
+    public function book()
+    {
+        return $this->hasOne(Book::class, 'created_by', 'id')
+            ->where('quantity', '>', 0)
+            ->latestOfMany('created_at');
+    }
 }

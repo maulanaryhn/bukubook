@@ -32,8 +32,9 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->roles }}</td>
                                 <td class="d-flex">
-                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning me-3">Edit</a>
+                                    <a href="{{ route('user.edit', $user->id) }}" class="btn btn-warning me-3">EDIT</a>
                                     <x-button.delete :action="route('user.delete', $user->id)"/>
+                                    <a href="{{ route('user.show', $user->id) }}" class="btn btn-primary ms-3">DETAIL</a>
                                 </td>
                             </tr>
                         @endforeach

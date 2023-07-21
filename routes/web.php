@@ -39,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create')->can('create-user');
             Route::post('/', 'store')->name('store')->can('create-user');
+            Route::get('/{user}/show', 'show')->name('show');
             Route::get('/{user}/edit', 'edit')->name('edit');
             Route::put('/{user}', 'update')->name('update');
             Route::delete('/{user}', 'destroy')->name('delete');

@@ -46,6 +46,20 @@ class UserController extends Controller
         return redirect()->route('user.index')->with('success', 'Data Berhasil Ditambahkan!');
     }
 
+    public function show($id)
+    {
+        $user = User::with('books.categories', 'book.categories')
+            ->withCount('books')
+            ->find($id);
+
+            $array = ['satu', 'dua'];
+            // dd($array, collect($array));
+
+        return view(('user.show'), [
+            'user' => $user
+        ]);
+    }
+
     public function edit($id)
     {
         // dd($id);
